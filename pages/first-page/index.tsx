@@ -11,7 +11,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => ({
 });
 
 const FirstPage: NextPage<Props> = ({ title }) => {
-  console.log("aaa");
+  console.log(title);
 
   return (
     <>
@@ -24,6 +24,9 @@ const FirstPage: NextPage<Props> = ({ title }) => {
       </div>
       <div>
         大切なあなたのお金を守るためにも、記録をしっかりつけて退去時にトラブルにならないように努めましょう。
+      </div>
+      <div>
+       来年、リリースしたい！
       </div>
     </>
   );
