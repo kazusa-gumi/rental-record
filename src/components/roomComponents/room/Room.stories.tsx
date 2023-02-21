@@ -13,3 +13,28 @@ export const DefaultRoom = Template.bind({});
 DefaultRoom.args = {
   children: "洋室",
 };
+
+export const DefaultWashituRoom = Template.bind({});
+DefaultWashituRoom.args = {
+  children: "和室",
+};
+
+export const DefaultBathRoom = Template.bind({});
+DefaultBathRoom.args = {
+  children: "浴室",
+};
+
+export const DefaultRestRoom = Template.bind({});
+DefaultRestRoom.args = {
+  children: "トイレ",
+};
+
+export const DefaultFrontDoor = Template.bind({});
+DefaultFrontDoor.args = {
+  children: "玄関",
+};
+
+export const DefaultDiningRoom = Template.bind({});
+DefaultDiningRoom.args = {
+  children: "ダイニング",
+};

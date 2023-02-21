@@ -8,7 +8,14 @@ type Props = {
 
 export const Room = memo(
   ({ children }: Props): JSX.Element => (
-    <Box sx={{ width: 300, height: 300, backgroundColor: "primary.dark" }}>
+    <Box
+      sx={{
+        width: 100,
+        height: 40,
+        backgroundColor: "#c1ffff",
+        textAlign: "center",
+      }}
+    >
       {children}
     </Box>
   )
