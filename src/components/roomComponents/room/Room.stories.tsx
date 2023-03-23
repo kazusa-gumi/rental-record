@@ -1,4 +1,3 @@
-import { roomMessages } from "@/src/lib/messages";
 import type { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import { Room } from "./Room";
