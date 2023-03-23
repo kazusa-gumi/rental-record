@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { useDraggable } from "@dnd-kit/core";
 import { memo } from "react";
 
@@ -23,3 +23,5 @@ export const Draggable = memo(({ id, children }: Props): JSX.Element => {
     </button>
   );
 });
+
+Draggable.displayName = "Draggable";

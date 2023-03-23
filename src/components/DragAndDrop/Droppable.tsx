@@ -21,3 +21,5 @@ export const Droppable = memo(({ children, id }: Props): JSX.Element => {
     </div>
   );
 });
+
+Droppable.displayName = "Droppable";

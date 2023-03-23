@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import { useState } from "react";
 import { DndContext } from "@dnd-kit/core";
 
 import { Droppable } from "./Droppable";
@@ -30,3 +30,5 @@ export const DndContextComponent = memo((): JSX.Element => {
     </DndContext>
   );
 });
+
+DndContextComponent.displayName = "DndContextComponent";
