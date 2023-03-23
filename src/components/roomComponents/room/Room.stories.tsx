@@ -38,3 +38,13 @@ export const DefaultDiningRoom = Template.bind({});
 DefaultDiningRoom.args = {
   children: "ダイニング",
 };
+
+export const DefaultkichinRoom = Template.bind({});
+DefaultkichinRoom.args = {
+  children: "キッチン",
+};
+
+export const DefaultBathHouse = Template.bind({});
+DefaultBathHouse.args = {
+  children: "脱衣所",
+};
