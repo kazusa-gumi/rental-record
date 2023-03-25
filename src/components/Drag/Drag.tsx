@@ -72,3 +72,5 @@ export const DraggableStory = memo((): JSX.Element => {
     </DndContext>
   );
 });
+
+DraggableStory.displayName = "DraggableStory";
