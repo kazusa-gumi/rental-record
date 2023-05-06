@@ -30,15 +30,30 @@ export enum Axis {
 type DraggableItemPropsType = {
   top?: number;
   left?: number;
+  width?: number;
+  height?: number;
 };
 
 export const DragSnap = memo((): JSX.Element => {
   const [{ x, y }, setCoordinates] = useState<Coordinates>(defaultCoordinates);
+  const [newWidth, setNewWidth] = useState<number>(100); // 追加
+  const [newHeight, setNewHeight] = useState<number>(100); // 追加
+
+  const handleResize = (width: number, height: number) => {
+    // 追加
+    setNewWidth(width);
+    setNewHeight(height);
+  };
 
   const keyboardSensor = useSensor(KeyboardSensor, {});
   const sensors = useSensors(keyboardSensor);
 
-  const DraggableItem = ({ top, left }: DraggableItemPropsType) => {
+  const DraggableItem = ({
+    top,
+    left,
+    width = newWidth, // 修正
+    height = newHeight, // 修正
+  }: DraggableItemPropsType) => {
     const { attributes, isDragging, listeners, setNodeRef, transform } =
       useDraggable({
         id: "draggable",
@@ -51,6 +66,9 @@ export const DragSnap = memo((): JSX.Element => {
         listeners={listeners}
         style={{ top, left }}
         transform={transform}
+        width={width}
+        onResize={handleResize} // 追加
+        height={height}
         {...attributes}
       />
     );

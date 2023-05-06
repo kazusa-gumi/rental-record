@@ -105,6 +105,16 @@
       }
     }
   }
+
+  .resizeHandle {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    cursor: nwse-resize;
+  }
   
   @keyframes pulse {
     from {
