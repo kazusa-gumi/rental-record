@@ -13,6 +13,9 @@ import {
 
 import { Draggable } from "./Draggable";
 import { Wrapper } from "./Wrapper";
+import classNames from "classnames";
+import styles from "./DraggableStory.module.css";
+import { snapToGridModifier } from "../DragSnap/DragSnap";
 
 const defaultCoordinates = {
   x: 0,
@@ -55,21 +58,26 @@ export const DraggableStory = memo((): JSX.Element => {
   };
 
   return (
-    <DndContext
-      // sensors={sensors}
-      onDragEnd={({ delta }) => {
-        setCoordinates(({ x, y }) => {
-          return {
-            x: x + delta.x,
-            y: y + delta.y,
-          };
-        });
-      }}
-    >
-      <Wrapper>
-        <DraggableItem top={y} left={x} />
-      </Wrapper>
-    </DndContext>
+    <div className={classNames(styles.gridContainer, styles.grid)}>
+      <div className="grid">
+        <DndContext
+          // sensors={sensors}
+          onDragEnd={({ delta }) => {
+            setCoordinates(({ x, y }) => {
+              return {
+                x: x + delta.x,
+                y: y + delta.y,
+              };
+            });
+          }}
+          modifiers={[snapToGridModifier]}
+        >
+          <Wrapper>
+            <DraggableItem top={y} left={x} />
+          </Wrapper>
+        </DndContext>
+      </div>
+    </div>
   );
 });
 
