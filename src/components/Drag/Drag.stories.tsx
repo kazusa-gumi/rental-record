@@ -1,14 +1,14 @@
 import type { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import { DraggableStory } from "./Drag";
+import { DefaultDraggable } from "./DefaultDraggable";
 
 export default {
-  component: DraggableStory,
-  title: "DraggableStory",
-} as ComponentMeta<typeof DraggableStory>;
+  component: DefaultDraggable,
+  title: "DefaultDraggable",
+} as ComponentMeta<typeof DefaultDraggable>;
 
-const Template: ComponentStory<typeof DraggableStory> = () => (
-  <DraggableStory />
+const Template: ComponentStory<typeof DefaultDraggable> = () => (
+  <DefaultDraggable />
 );
 
 export const DefaultDraggableStory = Template.bind({});
