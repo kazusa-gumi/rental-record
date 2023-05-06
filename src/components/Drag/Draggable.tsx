@@ -28,8 +28,8 @@ interface Props {
   style?: React.CSSProperties;
   buttonStyle?: React.CSSProperties;
   transform?: Transform | null;
-  width: number;
-  height: number;
+  width?: number | null;
+  height?: number | null;
   onResize?: (width: number, height: number) => void; // 追加
 }
 
@@ -53,12 +53,12 @@ export const Draggable = forwardRef<HTMLButtonElement, Props>(
     },
     ref
   ) {
-    const [currentWidth, setCurrentWidth] = useState<number>(width);
-    const [currentHeight, setCurrentHeight] = useState<number>(height);
+    const [currentWidth, setCurrentWidth] = useState<number>(width ?? 100);
+    const [currentHeight, setCurrentHeight] = useState<number>(height ?? 100);
 
     useEffect(() => {
-      setCurrentWidth(width);
-      setCurrentHeight(height);
+      setCurrentWidth(width ?? 100);
+      setCurrentHeight(height ?? 100);
     }, [width, height]);
 
     return (
