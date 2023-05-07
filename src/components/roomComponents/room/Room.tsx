@@ -17,8 +17,9 @@ export const Room = ({ roomName }: Props) => {
     };
   }, []);
 
-  const handleDoubleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    const content = event.currentTarget;
+  const handleDoubleClick = (event: MouseEvent) => {
+    // cast the currentTarget to HTMLDivElement
+    const content = event.currentTarget as HTMLDivElement;
     content.contentEditable = "true";
     content.focus();
   };
@@ -39,8 +40,9 @@ export const Room = ({ roomName }: Props) => {
     }
   };
 
-  const handleBlur = (event: React.FocusEvent<HTMLDivElement>) => {
-    const content = event.currentTarget;
+  const handleBlur = (event: FocusEvent) => {
+    // cast the currentTarget to HTMLDivElement
+    const content = event.currentTarget as HTMLDivElement;
     const index = parseInt(content.dataset.index || "0");
     setRooms((prevRooms) => {
       const newRooms = [...prevRooms];
