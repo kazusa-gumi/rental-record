@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { GridStack } from "gridstack";
 import "gridstack/dist/gridstack.min.css";
 import styles from "./Room.module.css";
