@@ -1,0 +1,11 @@
+.widget1 {
+    background-color: rgba(75, 192, 192, 0.6);
+    padding: 16px;
+    border-radius: 5px;
+  }
+  
+  .widget2 {
+    background-color: rgba(255, 206, 86, 0.6);
+    padding: 16px;
+    border-radius: 5px;
+  }

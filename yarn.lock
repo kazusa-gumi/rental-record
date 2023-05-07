@@ -2815,6 +2815,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/gridstack@0.5.2":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@types/gridstack/-/gridstack-0.5.2.tgz#83a1cf885719787a93fa15238f25867a6e7c5dab"
+  integrity sha512-PL89DpmkLup27M63ihTc4hRCcGdCmINlurWUYe415P2/eLe43XneAuFjRLttEg3dBiq38yBe0vadj9KajEa5Ww==
+  dependencies:
+    gridstack "*"
+
 "@types/hast@^2.0.0":
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/@types/hast/-/hast-2.3.4.tgz#8aa5ef92c117d20d974a82bdfb6a648b08c0bafc"
@@ -6437,7 +6444,7 @@ grapheme-splitter@^1.0.4:
   resolved "https://registry.yarnpkg.com/grapheme-splitter/-/grapheme-splitter-1.0.4.tgz#9cf3a665c6247479896834af35cf1dbb4400767e"
   integrity sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==
 
-gridstack@8.1.0:
+gridstack@*, gridstack@8.1.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/gridstack/-/gridstack-8.1.0.tgz#544af2da3602da2c0da249cbb115dcb3e62637cb"
   integrity sha512-cd/fFRhl4fy5JtLerBCfH1Qrok2x5rTC9Gx5C9FCDIbB/PNVLB4AYom5iRtyPHXR8863gpBzrsEoG5xnr0MTRA==
