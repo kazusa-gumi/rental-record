@@ -1,13 +1,9 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { GridStack } from "gridstack";
 import "gridstack/dist/gridstack.min.css";
-import styles from "./Room.module.css";
+import styles from "./GridStackComponent.module.css";
 
-type Props = {
-  roomName: string;
-};
-
-export const Room = ({ roomName }: Props) => {
+export const GridStackComponent = () => {
   useEffect(() => {
     const grid = GridStack.init();
     return () => {
@@ -25,7 +21,18 @@ export const Room = ({ roomName }: Props) => {
         data-gs-height="4"
       >
         <div className={`grid-stack-item-content ${styles.widget1}`}>
-          {roomName}
+          ウィジェット1
+        </div>
+      </div>
+      <div
+        className="grid-stack-item"
+        data-gs-x="4"
+        data-gs-y="0"
+        data-gs-width="4"
+        data-gs-height="4"
+      >
+        <div className={`grid-stack-item-content ${styles.widget2}`}>
+          ウィジェット2
         </div>
       </div>
     </div>
