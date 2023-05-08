@@ -35,7 +35,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <Login onLogin={handleLogin} />
+        <Login />
         {emailForVerification && (
           <div>
             <label htmlFor="verificationCode">Verification code:</label>

@@ -11,7 +11,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [passwordConf, setPasswordConf] = useState("");
 
-  const onLogin = async (e) => {
+  const onLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const { error: signInError } = await supabase.auth.signInWithPassword({

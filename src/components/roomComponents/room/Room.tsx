@@ -100,7 +100,7 @@ export const Room = ({ roomName }: Props) => {
       alert("Room successfully created");
     } catch (error) {
       // 保存に失敗した場合の処理を行います。例えば：
-      alert("Failed to create room: " + error.message);
+      alert("Failed to create room");
     }
   };
 
