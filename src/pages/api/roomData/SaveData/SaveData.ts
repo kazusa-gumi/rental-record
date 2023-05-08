@@ -1,13 +1,18 @@
-
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { supabase } from '../../../../lib/supabase';
 
-let savedData = '';
-
-export const  saveDataApi = (req: NextApiRequest, res: NextApiResponse) => {
+export const handler = async(req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
-    savedData = req.body.data;
-    res.status(200).json({ message: 'Data saved!' });
+    const roomData = req.body;
+
+    const { error } = await supabase.from('rooms').insert(roomData);
+
+    if (error) {
+      res.status(500).json({ error: error.message });
+    } else {
+      res.status(200).json({ message: 'Room data saved successfully' });
+    }
   } else {
-    res.status(405).json({ message: 'Method not supported.' });
+    res.status(405).json({ message: 'Method not allowed' });
   }
 }

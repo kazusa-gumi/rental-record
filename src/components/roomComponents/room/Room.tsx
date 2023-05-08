@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { GridStack } from "gridstack";
 import "gridstack/dist/gridstack.min.css";
 import styles from "./Room.module.css";
+import { saveRoom } from "../../../lib/api";
 
 type Props = {
   roomName?: string;
@@ -86,9 +87,26 @@ export const Room = ({ roomName }: Props) => {
     }, 100);
   };
 
+  const handleSaveClick = async function handleCreateRoom() {
+    // roomデータを取得します。以下は一例です。
+    const roomData = {
+      title: "Example Room",
+      description: "This is an example room.",
+    };
+    try {
+      await saveRoom(roomData);
+      // 保存に成功した場合の処理を行います。例えば：
+      alert("Room successfully created");
+    } catch (error) {
+      // 保存に失敗した場合の処理を行います。例えば：
+      alert("Failed to create room");
+    }
+  };
+
   return (
     <>
       <button onClick={handleClick}>部屋を追加する</button>
+      <button onClick={handleSaveClick}>部屋を保存する</button>
       <div className="grid-stack"></div>
     </>
   );

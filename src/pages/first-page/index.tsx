@@ -1,4 +1,6 @@
+import { Room } from "../../components/roomComponents/room";
 import type { GetStaticProps, NextPage } from "next";
+import React from "react";
 
 type Props = {
   title: string;
@@ -25,9 +27,8 @@ const FirstPage: NextPage<Props> = ({ title }) => {
       <div>
         大切なあなたのお金を守るためにも、記録をしっかりつけて退去時にトラブルにならないように努めましょう。
       </div>
-      <div>
-       来年、リリースしたい！
-      </div>
+      <div>来年、リリースしたい！</div>
+      <Room roomName="和室" />
     </>
   );
 };
