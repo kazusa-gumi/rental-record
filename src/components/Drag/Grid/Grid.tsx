@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import GridStack from "gridstack";
+import { GridStack } from "gridstack";
 import "gridstack/dist/gridstack.min.css";
 import styles from "./GridStackComponent.module.css";
 
