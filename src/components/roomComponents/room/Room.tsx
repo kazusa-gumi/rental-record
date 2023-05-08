@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import GridStack from "gridstack";
-
+import { GridStack } from "gridstack";
 import "gridstack/dist/gridstack.min.css";
 import styles from "./Room.module.css";
 import { saveRoom } from "../../../lib/api";
