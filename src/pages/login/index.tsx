@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Login from "../../components/login/Login/Login";
+import { SignUp } from "../../components/login/SignUp/SignUp";
 import { login, verifyEmail } from "../../apiClient";
 
 const App: React.FC = () => {
@@ -35,7 +35,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <Login />
+        <SignUp />
         {emailForVerification && (
           <div>
             <label htmlFor="verificationCode">Verification code:</label>
