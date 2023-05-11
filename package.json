@@ -31,8 +31,8 @@
     "next": "13.1.6",
     "next-transpile-modules": "10.0.0",
     "react": "18.2.0",
-    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "18.2.0",
+    "react-dropzone": "14.2.3",
     "typescript": "4.9.5"
   },
   "devDependencies": {

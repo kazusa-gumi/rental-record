@@ -20,6 +20,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/roomData/SaveData/SaveData.ts", "src/components/login/Login"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/roomData/SaveData/SaveData.ts", "src/components/login/SignUp"],
   "exclude": ["node_modules"]
 }
