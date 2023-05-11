@@ -1,59 +1,73 @@
+import Head from "next/head";
+
+import { supabase } from "../../lib/supabase";
 import { useState } from "react";
-import { SignUp } from "../../components/login/SignUp/SignUp";
-import { login, verifyEmail } from "../../apiClient";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-const App: React.FC = () => {
-  const [verificationCode, setVerificationCode] = useState<string>("");
-  const [emailForVerification, setEmailForVerification] = useState<string>("");
+const Login = () => {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleLogin = async (email: string, password: string) => {
+  const onLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     try {
-      const data = await login(email, password);
-      if (data.verificationRequired) {
-        setEmailForVerification(email);
-        // ここでユーザーにメール認証を行ってもらいます。
-      } else {
-        // 登録が成功した場合の処理を追加
-        console.log("Logged in successfully:", data);
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+      });
+      if (signInError) {
+        throw signInError;
       }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleVerification = async (code: string) => {
-    try {
-      const data = await verifyEmail(emailForVerification, code);
-      console.log("Email verified successfully:", data);
-
-      // メール認証が完了した後の処理を追加
-    } catch (error) {
-      console.error(error);
+      await router.push("/");
+    } catch {
+      alert("エラーが発生しました");
     }
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <SignUp />
-        {emailForVerification && (
-          <div>
-            <label htmlFor="verificationCode">Verification code:</label>
-            <input
-              type="text"
-              id="verificationCode"
-              value={verificationCode}
-              onChange={(e) => setVerificationCode(e.target.value)}
-              required
-            />
-            <button onClick={() => handleVerification(verificationCode)}>
-              Verify
-            </button>
-          </div>
-        )}
-      </header>
+    <div>
+      <Head>
+        <title>ログイン画面</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <main>
+        <div>
+          <form onSubmit={onLogin}>
+            <div>
+              <label>メールアドレス</label>
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <label>パスワード</label>
+              <input
+                type="password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div>
+              <button type="submit">ログイン</button>
+              <br />
+              <Link href="/signup">
+                ユーザー登録がお済みでない方はこちらから
+              </Link>
+              <br />
+              <Link href="/sendemail">パスワードをお忘れの方はこちらから</Link>
+            </div>
+          </form>
+        </div>
+      </main>
+      <footer></footer>
     </div>
   );
 };
 
-export default App;
+export default Login;

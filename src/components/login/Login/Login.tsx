@@ -21,7 +21,7 @@ export const Login = () => {
       if (signInError) {
         throw signInError;
       }
-      await router.push("/top");
+      await router.push("/");
     } catch {
       alert("エラーが発生しました");
     }
