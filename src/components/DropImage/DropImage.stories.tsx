@@ -4,7 +4,7 @@ import { DropImage } from "./DropImage";
 
 export default {
   component: DropImage,
-  title: "DropImage",
+  title: "DropImageStory",
 } as ComponentMeta<typeof DropImage>;
 
 const Template: ComponentStory<typeof DropImage> = () => <DropImage />;
