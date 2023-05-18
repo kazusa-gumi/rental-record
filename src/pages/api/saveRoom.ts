@@ -12,10 +12,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       console.log(roomData)
       // データが正常に保存されたら、200 ステータスコードとメッセージを返す
       res.status(200).json({ message: 'Room successfully saved.' });
-    } catch (error) {
+    } catch (error: unknown) {
         console.log(error)
-      // エラーが発生した場合は、500 ステータスコードとエラーメッセージを返す
-      res.status(500).json({ message: 'Failed to save room', error: error.message });
+        // エネーラーメッセージにアクセスするために、error を Error 型にキャスト
+        const errorMessage = (error as Error).message;
+        // エラーが発生した場合は、500 ステータスコードとエラーメッセージを返す
+        res.status(500).json({ message: 'Failed to save room', error: errorMessage });
     }
   } else {
     // POSTメソッド以外は許可しない
