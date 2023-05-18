@@ -1,13 +1,20 @@
-export async function saveRoom(data: any) {
-    const response = await fetch('/api/saveRoom', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+import { supabase } from '../lib/supabase';
+
+export const saveRoomToDb = async (roomData: any) => {
+  const { data, error } = await supabase
+    .from('rooms') // あなたのroomsテーブルが保存されている場所
+    .insert([
+      {
+        id: roomData.id,
+        title: roomData.title,
+        description: roomData.description,
+        // ここに他のデータも追加できます。
       },
-      body: JSON.stringify(data),
-    });
-  
-    if (!response.ok) {
-      throw new Error(await response.text());
-    }
+    ]);
+
+  if (error) {
+    throw error;
   }
+
+  return data;
+};
